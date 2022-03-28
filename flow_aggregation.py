@@ -48,7 +48,7 @@ def read_flows():
    return jsonify(output)
 
 
-@app.route('/flows/', methods=['POST'])
+@app.route('/flows', methods=['POST'])
 def write_flows():
    input_flow_data = request.json
    input_flow_list = []
@@ -83,9 +83,7 @@ def write_flows():
            db.session.commit()
        else:
            flow_db_entry.bytes_tx = flow_db_entry.bytes_tx + flow['bytes_tx']
-           flow_db_entry.bytes_rx = flow_db_entry.bytes_tx + flow['bytes_rx']
+           flow_db_entry.bytes_rx = flow_db_entry.bytes_rx + flow['bytes_rx']
            db.session.commit()
 
    return jsonify(aggregated_flow_list)
-
-
