@@ -32,7 +32,7 @@ def index():
     return 'Hello!'
 
 
-@app.route('/flows/', methods=['GET'])
+@app.route('/flows', methods=['GET'])
 def read_flows():
     hour = request.args.get('hour')
     output = []
